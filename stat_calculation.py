@@ -6,14 +6,13 @@ def hp_calc(base_hp, iv, ev, level):
     hp = hp // 1
     return int(hp)
 
-def stat_calc(base, iv, ev, level, nature):
+def stat_calc(base, iv, ev, level, nature, mod):
     stat = (((2 * base) + iv + (ev / 4)) * level) / 100
     stat += 5
     stat = stat * nature
     stat = stat // 1
+    if mod < 0:
+        stat = (stat * 2) / (2 + abs(mod))
+    elif mod > 0:
+        stat = (stat * (2 + abs(mod))) / 2
     return int(stat)
-
-hp = hp_calc(80, 31, 154, 100)
-attack = stat_calc(82, 31, 252, 100, 1)
-print(hp)
-print(attack)

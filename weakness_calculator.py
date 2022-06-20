@@ -2,7 +2,7 @@ import sys
 import json
 
 def weaknesses(attacking, defending):
-    f = open('type_chart.json')
+    f = open('databases/type_chart.json')
     type_chart = json.load(f)
 
     multiplier = 1
